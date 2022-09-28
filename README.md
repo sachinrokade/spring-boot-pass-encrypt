@@ -22,8 +22,9 @@ Jasypt Maven plugin
 ````
 
 <br></br>
-2. Test plugin is working....<br>
+**Test plugin**....<br><br>
       run below command for Encrypt<br>
+
 ```
       mvn jasypt:encrypt-value -Djasypt.encryptor.password=javatest -Djasypt.plugin.value=sxxxxx
 ```
@@ -35,7 +36,8 @@ run below command for Decrypt<br>
 ```
 ![ ](img/plugin_test-de.png)
 <br></br>
-3. How to Encrypt properties File Value<br>
+
+**How to Encrypt properties File Value**<br>
    <br>
    1. just need to set <b>DEC</b> keyword as show below
       <br></br>   
@@ -51,21 +53,20 @@ run below command for Decrypt<br>
       property file automaticaly updated with encrypted value
       ![ ](img/pro_updated_encrypt.png)
 
-      <br></br>
-      1. Test
-         1. if directly Run application then below error will get 
+<br>
+if directly Run application then below error will get reason is spring-boot not able to find private key
          
-   ````
+````
       Description:
            Failed to bind properties under 'spring.datasource.password' to java.lang.String:
            Reason: java.lang.IllegalStateException: either 'jasypt.encryptor.password' or one of ['jasypt.encryptor.private-key-string', 'jasypt.encryptor.private-key-location'] must be provided for Password-based or Asymmetric encryption 
       Action:
           Update your application's configuration
-      `````
+      
       resone is  while running we are not pass <b>private key</b> used below command for same
-      ````
+      
        -Djasypt.encryptor.password=java2021
- ````      
+````      
    
    pass this command as VM arrguments in Run Configuration<br></br>
    ![ ](img/inteliji.png)<br></br>
@@ -75,8 +76,9 @@ run below command for Decrypt<br>
    ![ ](img/success.png)
 
 <br></br>
-4. How to Decrypt properties File Value<br>
-   1. run below command with same private key and all properties value can avaliable  <br>
+
+**How to Decrypt properties File Value**<br>
+    run below command with same private key and all properties value can avaliable  <br>
 ````
       mvn jasypt:decrypt -Djasypt.encryptor.password=java2021
  ````      
